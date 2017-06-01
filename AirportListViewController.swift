@@ -16,11 +16,17 @@ struct airPort {
     var servedCity:String
     var shortedName:String
 }
-//class tableContent:UITableViewController{
-//
-//    @IBOutlet var label1: UILabel!
-//
-//}
+class tableContent:UITableViewCell{
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    func setTxt(_ txt: String){
+        self.label1.text = txt
+    }
+
+
+}
+
 class AirportListViewController: UITableViewController{
     
     var noteTitles = [String]()
@@ -79,12 +85,17 @@ class AirportListViewController: UITableViewController{
     }
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-        cell.textLabel?.text = (groupedAirports[indexPath.section]?[indexPath.row].name)! + "\n" + (groupedAirports[indexPath.section]?[indexPath.row].IATA)!
-//        cell.detailTextLabel?.text = groupedAirports[indexPath.section]?[indexPath.row].servedCity
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! tableContent
+        
+        cell.label1?.text = (groupedAirports[indexPath.section]?[indexPath.row].name)! + "\n" + (groupedAirports[indexPath.section]?[indexPath.row].IATA)!
+        cell.label3?.text = groupedAirports[indexPath.section]?[indexPath.row].servedCity
+        cell.label2?.text = groupedAirports[indexPath.section]?[indexPath.row].IATA
+        
 //        print(cell.textLabel?.text)
 //        label1.text =  groupedAirports[indexPath.section]?[indexPath.row].IATA
+//        (cell as tabelContent).label1.text? = "sss"
         print("row = \(indexPath.row)")
+        
         return cell
         
     }
