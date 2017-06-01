@@ -17,6 +17,7 @@
 		146128EB1ED9E52F00A8E2D6 /* AirportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146128EA1ED9E52F00A8E2D6 /* AirportListViewController.swift */; };
 		14B1C4971ED9F37A008C674D /* AirportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1C4961ED9F37A008C674D /* AirportViewController.swift */; };
 		14B1C49B1EDAB63E008C674D /* airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14B1C49A1EDAB63E008C674D /* airports.plist */; };
+		14B1C49F1EDEBCAD008C674D /* airportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B1C49E1EDEBCAD008C674D /* airportInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		146128EA1ED9E52F00A8E2D6 /* AirportListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirportListViewController.swift; path = ../AirportListViewController.swift; sourceTree = "<group>"; };
 		14B1C4961ED9F37A008C674D /* AirportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportViewController.swift; sourceTree = "<group>"; };
 		14B1C49A1EDAB63E008C674D /* airports.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = airports.plist; path = "../../Airports Data/airports.plist"; sourceTree = "<group>"; };
+		14B1C49E1EDEBCAD008C674D /* airportInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = airportInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				146128EA1ED9E52F00A8E2D6 /* AirportListViewController.swift */,
 				146128B81ED9E14400A8E2D6 /* AppDelegate.swift */,
 				14B1C4961ED9F37A008C674D /* AirportViewController.swift */,
+				14B1C49E1EDEBCAD008C674D /* airportInfo.swift */,
 				146128BA1ED9E14400A8E2D6 /* ViewController.swift */,
 				146128BC1ED9E14400A8E2D6 /* Main.storyboard */,
 				146128BF1ED9E14400A8E2D6 /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 				146128EB1ED9E52F00A8E2D6 /* AirportListViewController.swift in Sources */,
 				14B1C4971ED9F37A008C674D /* AirportViewController.swift in Sources */,
 				146128B91ED9E14400A8E2D6 /* AppDelegate.swift in Sources */,
+				14B1C49F1EDEBCAD008C674D /* airportInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

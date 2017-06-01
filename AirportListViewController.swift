@@ -16,8 +16,13 @@ struct airPort {
     var servedCity:String
     var shortedName:String
 }
-
+//class tableContent:UITableViewController{
+//
+//    @IBOutlet var label1: UILabel!
+//
+//}
 class AirportListViewController: UITableViewController{
+    
     var noteTitles = [String]()
     var countrys = [String]()
     var countryNames = [String]()
@@ -34,7 +39,7 @@ class AirportListViewController: UITableViewController{
                 countrys.append(country)
             }
         }
-       // print("count = \(countrys.count)")
+        print("count = \(countrys.count)")
         return countrys.count
     }
     func setGroup( group: inout [String],_ countryName: [String]){
@@ -65,6 +70,7 @@ class AirportListViewController: UITableViewController{
                 rowsCount += 1
             }
         }
+        print(rowsCount)
         return rowsCount
     }
     
@@ -73,12 +79,40 @@ class AirportListViewController: UITableViewController{
     }
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-        print("raw =\(indexPath.row) name = \(String(describing: groupedAirports[indexPath.section]?[indexPath.row].name))")
-        cell.textLabel?.text = groupedAirports[indexPath.section]?[indexPath.row].name
+        cell.textLabel?.text = (groupedAirports[indexPath.section]?[indexPath.row].name)! + "\n" + (groupedAirports[indexPath.section]?[indexPath.row].IATA)!
+//        cell.detailTextLabel?.text = groupedAirports[indexPath.section]?[indexPath.row].servedCity
+//        print(cell.textLabel?.text)
+//        label1.text =  groupedAirports[indexPath.section]?[indexPath.row].IATA
+        print("row = \(indexPath.row)")
         return cell
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showInfo" {
+            guard let cell = sender as? UITableViewCell else {
+                fatalError("Mis-configured storyboard! The sender should be a cell.")
+            }
+            print("2")
+            self.prepareOpeningView(for: segue, sender: cell)
+        }
+    }
+    func prepareOpeningView(for segue: UIStoryboardSegue, sender: UITableViewCell) {
+        
+        let senderIndexPath = self.tableView.indexPath(for: sender)!
+        let selectedImage = self.groupedAirports[senderIndexPath.section]?[senderIndexPath.row].IATA
+        let selectedName = self.groupedAirports[senderIndexPath.section]?[senderIndexPath.row].name
+        let selectedCountry = self.groupedAirports[senderIndexPath.section]?[senderIndexPath.row].country
+        let selectedCity = self.groupedAirports[senderIndexPath.section]?[senderIndexPath.row].servedCity
+        print(selectedImage!)
+        AirportViewController.image = selectedImage!
+        AirportViewController.airport_Content = selectedName!
+        AirportViewController.airport_Country = selectedCountry!
+        AirportViewController.airport_City = selectedCity!
+        
+//        airportInfo.open(imageNo: selectedImage!)
+//        noteViewController.delegate = self
     }
     
     override func viewDidLoad() {
